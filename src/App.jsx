@@ -36,16 +36,18 @@ function App() {
     <div className="App">
       <Header />
       <CreateArea onAdd={addNote} />
-      {contents.map((content, index) => (
-        <Note
-          key={index}
-          title={content.title}
-          content={content.content}
-          onDelete={() => deleteContent(index)}
-          onCheck={() => checkContent(index)}
-          isChecked={contents[index].isDone}
-        />
-      ))}
+      <div className="notes-container">
+        {contents.map((content, index) => (
+          <Note
+            key={index}
+            title={content.title}
+            content={content.content}
+            onDelete={() => deleteContent(index)}
+            onCheck={() => checkContent(index)}
+            isChecked={contents[index].isDone}
+          />
+        ))}
+      </div>
       <Footer />
     </div>
   );
